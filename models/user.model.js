@@ -1,9 +1,9 @@
-const { DataTypes } = reuire('sequelize');
+const { DataTypes } = require('sequelize');
 const bcrypt = require('bcrypt');
 const sequelize = require('../config/db');
 
 const User = sequelize.define(
-    User,
+    'User',
     {
         id: {
             type: DataTypes.INTEGER,
@@ -57,7 +57,7 @@ User.beforeCreate(async (user) => {
 //hash before update
 User.beforeUpdate(async (user) => {
     if (user.changed('password')) {
-        user.passord = await bcrypt.hash(user.password, 10);
+        user.password = await bcrypt.hash(user.password, 10);
     }
 });
 
