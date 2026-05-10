@@ -40,6 +40,21 @@ const User = sequelize.define(
         passwordResetExpires: {
             type: DataTypes.DATE,
             allowNull: true
+        },
+
+        isVerified: {
+            type: DataTypes.BOOLEAN,
+            defaultValue: false
+        },
+
+        emailVerificationToken: {
+            type: DataTypes.STRING,
+            allowNull: true
+        },
+
+        emailVerificationExpires: {
+            type: DataTypes.DATE,
+            allowNull: true
         }
 
     },
