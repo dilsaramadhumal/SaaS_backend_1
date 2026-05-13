@@ -2,7 +2,7 @@ const crypto = require('crypto');
 const { User } = require('../models');
 const emailService = require('../services/email.services');
 
-exports.forgotPassword = async (req, res) => {
+exports.forgetPassword = async (req, res) => {
     try{
         const user = await User.findOne({
             where: {emil: req.body.email}

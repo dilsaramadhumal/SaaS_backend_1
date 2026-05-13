@@ -23,7 +23,7 @@ exports.login = async (req, res, next) => {
 
         res.cookie('refreshToken', result.refreshToken, {
             httpOnly: true,
-            secure: false,
+            secure: process.env.NOODE_ENV === "production",
             sameSite: "strict"
         });
 
@@ -47,7 +47,7 @@ exports.refresh = async (req, res, next) => {
 
         res.cookie('refreshToken', result.refreshToken, {
             httpOnly: true,
-            secure: false,
+            secure: process.env.NODE_ENV === 'production',
             sameSite: "strict"
         });
 
