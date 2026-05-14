@@ -9,7 +9,7 @@ const {
 } = require('../utils/token');
 const { IncomingMessage } = require('http');
 
-const emailService = require('./email.service');
+const emailService = require('./email.services');
 
 exports.registerUser = async (data) => {
     const transaction = await sequelize.transaction();
