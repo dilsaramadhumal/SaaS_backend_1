@@ -11,13 +11,13 @@ Session.belongsTo(User, {
     foreignKey: 'userId'
 });
 
-User.hasMany(Products, {
+User.hasMany(Product, {
     foreigKey: 'ownerId',
-    onDelete: CASCADE
+    onDelete: 'CASCADE'
 });
 
 Product.belongsTo(User, {
-    foreignKey: 'ownerID'
+    foreignKey: 'ownerId'
 });
 
 module.exports = {
