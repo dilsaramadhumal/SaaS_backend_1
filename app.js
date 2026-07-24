@@ -8,6 +8,8 @@ const authRoutes = require('./routes/auth.routes');
 const passwordRoutes = require("./routes/password.routes");
 const csrfProtection = require('./middleware/csrf.middleware');
 const errorHandler = require('./middleware/error.middleware');
+const requestLogger = require('./middleware/requestLogger');
+const healthRoutes = require('./routes/health.routes');
 
 const app = express();
 
@@ -24,7 +26,10 @@ app.use(compression());
 app.use(csrfProtection);
 app.use('/api/auth', authRoutes);
 app.use("/api/password", passwordRoutes);
+app.use('/health', healthRoutes);
 app.use(errorHandler);
+
+app.use(requestLogger);
 
 app.set('trust proxy', 1);
 
